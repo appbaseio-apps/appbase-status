@@ -1,12 +1,42 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Request from 'react-http-request';
+
+const CollectionRender = ({element,index}) => {
+	let bgclass=(element.status)?"greenC":"redC";
+	return (
+	<div key={element.id}>
+	{(element.status)?(
+		<div className="collapsible-header greenC" >{element.name+" "+element.timestamp+" "+element.took}</div>
+		    
+	):(
+		<div className="collapsible-header redC" >{element.name+" "+element.timestamp+" "+element.took}</div>
+		    
+	)}
+	<div className="collapsible-body"><span>{element.description}</span>
+	</div>
+	</div>
+	);
+}
+
+const CollectionListRender = ({list}) => {
+	
+	return (
+		 <ul className="collapsible" data-collapsible="accordion">
+            {list.map(
+                  (t, index)=>( <CollectionRender element={t} index={index}/>)
+              )}
+            </ul>
+	        
+	    );
+	
+}
  
 export default class App extends Component {
   render() {
     return (
       <Request
-        url='https://slack-redir.net/link?url=https%3A%2F%2Fappbase-apifrontend-funtests.s3.amazonaws.com%2FFunctionalTestResult_es2.txt'
+        url='https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt'
         method='get'
         accept='application/json'
         verbose={true}
@@ -15,8 +45,11 @@ export default class App extends Component {
           ({error, result, loading}) => {
             if (loading) {
               return <div>loading...</div>;
-            } else {
-              return <div>{ JSON.stringify(result) }</div>;
+            } 
+
+            else {
+            	let text= JSON.parse(result.text)
+            	return (<CollectionListRender list={text}/>)
             }
           }
         }
