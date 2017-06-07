@@ -1,28 +1,35 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Request from 'react-http-request';
+import Collapsible from 'react-collapsible';
 
 const CollectionRender = ({element,index}) => {
 	let bgclass=(element.status)?"greenC":"redC";
-	return (
-	<div key={element.id}>
-	{(element.status)?(
-		<div className="collapsible-header greenC">
-			<div className="block">{element.name}</div>
-			<div className="block">{element.timestamp}</div>
-			<div className="block">{element.took}</div>
+	let triggerElement = (element.status)?(
+		<div className="my-collapsible-header row">
+			<div className="col s1"><i className="fa fa-check greenC" aria-hidden="true"></i></div>
+			<div className="col s3"><strong>{element.name}</strong></div>
+			<div className="col s4">{element.endpoint}</div>
+			<div className="col s2">{element.timestamp}</div>
+			<div className="col s2">{element.took}</div>
 		</div>
 		    
 	):(
-		<div className="collapsible-header redC" >
-			<div className="block">{element.name}</div>
-			<div className="block">{element.timestamp}</div>
-			<div className="block">{element.took}</div>
+		<div className="my-collapsible-header row" >
+			<div className="col s1"><i className="fa fa-times redC" aria-hidden="true"></i></div>
+			<div className="col s3"><strong>{element.name}</strong></div>
+			<div className="col s4">{element.endpoint}</div>
+			<div className="col s2">{element.timestamp}</div>
+			<div className="col s2">{element.took}</div>
 		</div>
 		    
-	)}
-	<div className="collapsible-body"><span>{element.description}</span>
-	</div>
+	);
+
+	return (
+	<div className="margin05" key={element.id}>
+	<Collapsible trigger={triggerElement}>
+	<div className="my-collapsible-body"><span>{element.description}</span></div>
+	</Collapsible>
 	</div>
 	);
 }
@@ -30,11 +37,11 @@ const CollectionRender = ({element,index}) => {
 const CollectionListRender = ({list}) => {
 	
 	return (
-		 <ul className="collapsible" data-collapsible="accordion">
+		 <div className="collapsible">
             {list.map(
                   (t, index)=>( <CollectionRender element={t} index={index}/>)
               )}
-            </ul>
+            </div>
 	        
 	    );
 	
@@ -57,7 +64,12 @@ export default class App extends Component {
 
             else {
             	let text= JSON.parse(result.text)
-            	return (<CollectionListRender list={text}/>)
+            	return (
+            		<div>
+            		<h3>Result All</h3>
+            		<CollectionListRender list={text}/>
+            		</div>
+            		)
             }
           }
         }

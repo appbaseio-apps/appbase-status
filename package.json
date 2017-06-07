@@ -19,6 +19,7 @@
     "jsonp": "^0.2.1",
     "npm-run-all": "^4.0.2",
     "react": "^15.4.2",
+    "react-collapsible": "^1.4.0",
     "react-dom": "^15.4.2",
     "react-syntax-highlighter": "^5.6.2",
     "shebang-loader": "0.0.1",

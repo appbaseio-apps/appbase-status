@@ -1,14 +1,78 @@
 .redC {
-	background-color: #f44336;
-	color: white;
+	/*background-color: #f44336;
+	color: white;*/
+	color: #f44336;;
+	margin: 1px;
 }
 
 .greenC {
-	background-color: #4CAF61;
-	color: white;
+	/*background-color: #4CAF50;
+	color: white;*/
+	color: #4CAF50;
+	margin: 1px;
+}
+
+.row {
+	margin-bottom: 0px;
+}
+
+.row .col {
+	padding: 0.25rem;
+}
+.smallblock {
+	width: 5%;
+	float: left;
 }
 
 .block {
-	width: 25%;
+	width: 23%;
 	float: left;
+}
+
+.margin05 {
+	margin: 0.5%;
+}
+
+.collapsible {
+	width: 70%;
+	margin-left: 7%;
+	overflow-y: scroll;
+    height: 75vh;
+    /*padding: 2px;*/
+}
+
+.row .col.s1 {
+	padding-left: 3%;
+}
+
+.row .col.s2 {
+	text-align: right;
+}
+
+h3 {
+	text-align: center;
+}
+
+.Collapsible {
+	/*background-color: #eee;*/
+}
+
+.my-collapsible-header {
+    display: block;
+
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.my-collapsible-body {
+    padding: 15px 0 15px 50px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+}
+
+.Collapsible__contentOuter {
+	margin: 0 2px 0 2px;
 }
