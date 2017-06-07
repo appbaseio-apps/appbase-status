@@ -7,3 +7,8 @@
 	background-color: #4CAF61;
 	color: white;
 }
+
+.block {
+	width: 25%;
+	float: left;
+}

@@ -7,10 +7,18 @@ const CollectionRender = ({element,index}) => {
 	return (
 	<div key={element.id}>
 	{(element.status)?(
-		<div className="collapsible-header greenC" >{element.name+" "+element.timestamp+" "+element.took}</div>
+		<div className="collapsible-header greenC">
+			<div className="block">{element.name}</div>
+			<div className="block">{element.timestamp}</div>
+			<div className="block">{element.took}</div>
+		</div>
 		    
 	):(
-		<div className="collapsible-header redC" >{element.name+" "+element.timestamp+" "+element.took}</div>
+		<div className="collapsible-header redC" >
+			<div className="block">{element.name}</div>
+			<div className="block">{element.timestamp}</div>
+			<div className="block">{element.took}</div>
+		</div>
 		    
 	)}
 	<div className="collapsible-body"><span>{element.description}</span>
