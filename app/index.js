@@ -37,21 +37,58 @@ const CollectionRender = ({element,index}) => {
 const CollectionListRender = ({list}) => {
 	
 	return (
-		 <div className="collapsible">
-            {list.map(
-                  (t, index)=>( <CollectionRender element={t} index={index}/>)
-              )}
-            </div>
-	        
-	    );
+		
+			<div className="collapsible">
+				{list.map(
+				      (t, index)=>( <CollectionRender element={t} index={index}/>)
+				  )}
+			</div>
+		
+		);
 	
 }
  
 export default class App extends Component {
+
+  constructor(props){
+  	super(props);
+
+  	if(this.props.url == undefined){
+  		this.state = {
+  			url: "https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt"
+  		}
+  	}
+  	else {
+  		this.state = {
+  			url: this.props.url
+  		}
+  	}
+  	this.changeUrl = this.changeUrl.bind(this);
+  }
+
+  changeUrl(event){
+
+  	event.preventDefault();
+  	let newUrl = document.getElementById("inputurl").value;
+  	debugger;
+  	this.state = {
+  		url: newUrl
+  	}
+  }
+
   render() {
     return (
+    <div className="block">
+		<div className="row">
+			<div className="col s1 rightalign">url:</div>
+			<input id="inputurl" type="url" className="col s8 textinput offset-s1"></input>
+			<button className="btn waves-effect waves-light" onClick={this.changeUrl}>
+				<i className="fa fa-play" aria-hidden="true"></i>
+			</button>
+		</div>
+		<div key={this.state}>
       <Request
-        url='https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt'
+        url={this.state.url}
         method='get'
         accept='application/json'
         verbose={true}
@@ -59,21 +96,38 @@ export default class App extends Component {
         {
           ({error, result, loading}) => {
             if (loading) {
-              return <div>loading...</div>;
+              return <div key={this.state.url}>loading...</div>;
             } 
 
-            else {
-            	let text= JSON.parse(result.text)
+            else if(result){
+            	let text= "";
+            	try {
+            	text= JSON.parse(result.text)
+            	debugger;
+            	}
+            	catch(e){
+            		this.state={
+            			url: this.state.url,
+            			error: e
+            		}
+            	}
+            	
             	return (
-            		<div>
-            		<h3>Result All</h3>
+            		<div key={this.state.url}>
+            		{this.state.error}
             		<CollectionListRender list={text}/>
             		</div>
             		)
             }
+            else {
+
+            	return (<div>wops!</div>);
+            }
           }
         }
       </Request>
+      </div>
+      </div>
     );
   }
 }
