@@ -86,9 +86,6 @@ return (
             	
             	return (
             		<div key={url}>
-                <div className="progress">
-                  <div className="indeterminate"></div>
-                </div>
             		<div className="redC">{error}</div>
             		{(text!=="")?<CollectionListRender list={text}/>:(<div />)}
             		</div>
