@@ -78,6 +78,14 @@ input.col.s8.textinput:focus {
 	box-shadow: none;
 }
 
+.progress {
+	background-color: #bbdefb;
+}
+
+.progress .indeterminate {
+	background-color: #3F9ED5;
+}
+
 .btn:focus {
 	background-color: #3F9ED5;
 }
