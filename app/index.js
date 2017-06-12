@@ -59,7 +59,7 @@ export default class App extends Component {
 						<form className="formstyle">
 						<input id="testname" type="text" className="col s8 textinput offset-s1"></input>
 						<button type="submit" className="btn waves-effect waves-light" onClick={changeTestName}>
-							<i className="fa fa-play" aria-hidden="true"></i>
+							<i className="fa fa-search" aria-hidden="true"></i>
 						</button>
 					</form>
 					</div>
