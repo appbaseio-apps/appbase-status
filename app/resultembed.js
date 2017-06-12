@@ -38,7 +38,7 @@ return (
             	if(result.error==undefined || result.error ==false) {
 
             	text= JSON.parse(result.text)
-            	debugger;
+            	// debugger;
               if(id!==undefined){
                 text=text.filter(function(item){
                   console.log(id);
