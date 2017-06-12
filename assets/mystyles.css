@@ -20,6 +20,11 @@
 	padding: 0.25rem;
 }
 
+.formstyle {
+	float: left;
+	width: 40%;
+}
+
 .smallblock {
 	width: 5%;
 	float: left;
@@ -29,12 +34,15 @@
 	text-align: right;
 }
 
+.margint01 {
+	margin: 1%;
+}
+
 .margin05 {
 	margin: 0.5%;
 }
 
 .block {
-	width: 70%;
 	margin-left: 7%;
 	margin-top: 1%;
 }

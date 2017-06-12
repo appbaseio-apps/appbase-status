@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import Request from 'react-http-request';
 import { CollectionListRender } from './component';
- 
-const ResultAll = (props) => {
+
+const ResultEmbed = (props) => {
   let url = "https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt"; 
   let error="";
+  let id="";
+  // debugger;
   if(props.url!==""){
     url = props.url;
+  }
+  if(props.name!==""){
+    id = props.id;
   }
 return (
 
@@ -28,11 +33,19 @@ return (
 
             else if(result){
             	let text= "";
+              let filteredlist="";
               // debugger;
             	if(result.error==undefined || result.error ==false) {
 
             	text= JSON.parse(result.text)
-            	// debugger;
+            	debugger;
+              if(id!==undefined){
+                text=text.filter(function(item){
+                  console.log(id);
+                  return item.name.toLowerCase().search(
+                    id.toLowerCase()) !== -1;
+                });
+              }
             	}
             	else{
                 // debugger;
@@ -40,7 +53,7 @@ return (
             	}
             	
             	return (
-            		<div key={url}>
+            		<div key={url+id}>
             		<div className="redC">{error}</div>
             		{(text!=="")?<CollectionListRender list={text}/>:(<div />)}
             		</div>
@@ -59,5 +72,5 @@ return (
 
 
 module.exports = {
-  ResultAll
+  ResultEmbed
 };
