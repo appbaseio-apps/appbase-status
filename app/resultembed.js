@@ -42,8 +42,7 @@ return (
               if(id!==undefined){
                 text=text.filter(function(item){
                   console.log(id);
-                  return item.name.toLowerCase().search(
-                    id.toLowerCase()) !== -1;
+                  return RegExp('\\b'+ id.toLowerCase() +'\\b').test(item.name.toLowerCase())
                 });
               }
             	}
