@@ -24,10 +24,10 @@ const CollectionRender = ({element,index}) => {
 	);
 
 	return (
-	<div className="margin05" key={element.id}>
-	<Collapsible trigger={triggerElement}>
-	<div className="my-collapsible-body"><span>{element.description}</span></div>
-	</Collapsible>
+	<div className="margin05" >
+		<Collapsible trigger={triggerElement}>
+		<div className="my-collapsible-body"><span>{element.description}</span></div>
+		</Collapsible>
 	</div>
 	);
 }
@@ -38,7 +38,7 @@ const CollectionListRender = ({list}) => {
 		
 			<div className="collapsible">
 				{list.map(
-				      (t, index)=>( <CollectionRender element={t} index={index}/>)
+				      (t, index)=>( <CollectionRender element={t} index={index} key={index} />)
 				  )}
 			</div>
 		

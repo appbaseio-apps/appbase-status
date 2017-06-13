@@ -2,20 +2,46 @@ import React, { Component } from "react";
 import Request from 'react-http-request';
 import { CollectionListRender } from './component';
 
-const ResultEmbed = (props) => {
+class ResultEmbed extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state={
+      id: (props.id===undefined)?(""):props.id
+    }
+  }
+
+
+  render(){
   let url = "https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt"; 
+  if(this.props.url !==""){
+    url=this.props.url
+  }
+  else{
+    url="https://appbase-apifrontend-funtests.s3.amazonaws.com/FunctionalTestResult_es2.txt"; 
+  }
   let error="";
-  let id="";
+  const changeTestName = (event) => {
+      event.preventDefault();
+      let newName = document.getElementById("testname").value;
+      // debugger;
+      this.setState({
+        id: newName   
+      })
+    }
   // debugger;
-  if(props.url!==""){
-    url = props.url;
-  }
-  if(props.name!==""){
-    id = props.id;
-  }
 return (
 
-    <div key={props.key}>
+    <div key={url+this.state.id}>
+      <div className="row">
+      <form>
+        <input id="testname" type="text" className="col s8 textinput offset-s1"></input>
+        <button type="submit" className="btn waves-effect waves-light" onClick={changeTestName}>
+          <i className="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+      </div>
       <Request
         url={url}
         method='get'
@@ -34,15 +60,17 @@ return (
             else if(result){
             	let text= "";
               let filteredlist="";
+              let id=this.state.id;
               // debugger;
             	if(result.error==undefined || result.error ==false) {
 
             	text= JSON.parse(result.text)
             	// debugger;
-              if(id!==undefined){
+              if(id!==""){
                 text=text.filter(function(item){
-                  console.log(id);
-                  return RegExp('\\b'+ id.toLowerCase() +'\\b').test(item.name.toLowerCase())
+                  
+                  // console.log(id);
+                  return (id.toLowerCase()).match(item.name.toLowerCase())
                 });
               }
             	}
@@ -52,7 +80,7 @@ return (
             	}
             	
             	return (
-            		<div key={url+id}>
+            		<div key={url+this.state.id}>
             		<div className="redC">{error}</div>
             		{(text!=="")?<CollectionListRender list={text}/>:(<div />)}
             		</div>
@@ -68,6 +96,7 @@ return (
       </div>
       );
     }
+  }
 
 
 module.exports = {

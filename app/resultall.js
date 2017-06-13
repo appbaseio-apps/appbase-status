@@ -10,7 +10,7 @@ const ResultAll = (props) => {
   }
 return (
 
-    <div key={props.key}>
+    <div key={url}>
       <Request
         url={url}
         method='get'
