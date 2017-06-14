@@ -2,7 +2,7 @@
   "name": "temp-status",
   "version": "0.0.3",
   "description": "",
-  "main": "app/app.js",
+  "main": "lib/app.js",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server --inline --hot --port 8000",
     "dev": "webpack -d --watch",
@@ -10,7 +10,8 @@
     "build": "webpack -p"
   },
   "files": [
-    "app/"
+    "app/",
+    "lib/"
   ],
   "license": "MIT",
   "devDependencies": {
