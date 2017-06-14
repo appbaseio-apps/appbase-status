@@ -1,6 +1,6 @@
 {
   "name": "temp-status",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "app/app.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "start": "npm-run-all --parallel dev webpack-dev-server",
     "build": "webpack -p"
   },
+  "files": [
+    "app/"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
