@@ -1,8 +1,8 @@
 {
   "name": "temp-status",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "app/app.js",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server --inline --hot --port 8000",
     "dev": "webpack -d --watch",
