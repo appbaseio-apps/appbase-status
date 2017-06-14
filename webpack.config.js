@@ -2,20 +2,20 @@ const path = require("path");
 
 module.exports = {
 	context: path.resolve(__dirname, "./app"),
-	entry: "./index.js",
+	entry: "./app.js",
 	output: {
 		path: path.resolve(__dirname, "./dist"),
 		filename: "bundle.js",
 		publicPath: "/dist/"
 	},
-	devServer: {
-		inline: true,
-		port: 8080,
-		contentBase: "./",
-		historyApiFallback: {
-			index: "./index.html"
-		}
-	},
+	// devServer: {
+	// 	inline: true,
+	// 	port: 8080,
+	// 	contentBase: "./",
+	// 	historyApiFallback: {
+	// 		index: "./index.html"
+	// 	}
+	// },
 	module: {
 		rules: [
 			{
