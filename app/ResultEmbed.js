@@ -21,13 +21,15 @@ export default class ResultEmbed extends Component {
 		return (
 			<div key={url + this.state.id}>
 				<div className="row">
-					<form>
-						<input id="testname" type="text" className="col s8 textinput offset-s1" />
-						<button type="submit" className="btn waves-effect waves-light" onClick={changeTestName}>
-							<i className="fa fa-search" aria-hidden="true" />
-						</button>
-					</form>
-				</div>
+					<div className="col s6 offset-s7">
+                    <form>
+                        <input id="testname" type="text" className="col s6 textinput offset-s1" />
+                        <button type="submit" className="btn waves-effect waves-light" onClick={changeTestName}>
+                            <i className="fa fa-search" aria-hidden="true" />
+                        </button>
+                    </form>
+                    </div>
+                </div>
 				<Request
 					url={url}
 					method="get"
