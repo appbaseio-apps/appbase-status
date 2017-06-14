@@ -1,25 +1,26 @@
 {
   "name": "temp-status",
-  "version": "0.0.5",
+  "version": "0.0.5-alpha6",
   "description": "",
   "main": "lib/app.js",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server --inline --hot --port 8000",
     "dev": "webpack -d --watch",
     "start": "npm-run-all --parallel dev webpack-dev-server",
-    "build": "webpack -p"
+    "build": "babel app --presets babel-preset-es2015 --out-dir lib"
   },
   "files": [
-    "lib/",
     "app/",
+    "assets/",
     "dist/",
-    "assets/"
+    "lib/"
   ],
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.23.0",
     "eslint": "^4.0.0",
     "html-webpack-plugin": "^2.24.1",
