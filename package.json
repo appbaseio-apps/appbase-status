@@ -1,6 +1,6 @@
 {
   "name": "temp-status",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "main": "lib/app.js",
   "scripts": {
@@ -10,8 +10,10 @@
     "build": "webpack -p"
   },
   "files": [
+    "lib/",
     "app/",
-    "lib/"
+    "dist/",
+    "assets/"
   ],
   "license": "MIT",
   "devDependencies": {
