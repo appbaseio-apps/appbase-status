@@ -32,7 +32,7 @@ export default class ResultEmbed extends Component {
 					url={url}
 					method="get"
 					accept="application/json"
-					verbose={true}
+					verbose={false}
 				>
 					{
 	({ error, result, loading }) => {
