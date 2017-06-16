@@ -24,7 +24,7 @@ export default class ResultEmbed extends Component {
 					<div className="col s6 offset-s7">
                     <form>
                         <input id="testname" type="text" className="col s6 textinput offset-s1" />
-                        <button type="submit" className="btn waves-effect waves-light" onClick={changeTestName}>
+                        <button type="submit" className="btn mybtn waves-effect waves-light" onClick={changeTestName}>
                             <i className="fa fa-search" aria-hidden="true" />
                         </button>
                     </form>
