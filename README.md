@@ -19,4 +19,5 @@
 ```
 
 example app: https://appbaseio-apps.github.io/appbase-status-example/
+
 app repo: https://github.com/appbaseio-apps/appbase-status-example
